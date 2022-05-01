@@ -7,7 +7,9 @@ public class OutputMessages {
     LinkedList<OutputMessage> messages = new LinkedList<>();
     public void addMessages(OutputMessage message) {
         messages.addFirst(message);
-        //TODO limit to 50
+        if (messages.size() > 50) {
+            removeOldMessage();
+        }
     }
 
     public void removeOldMessage() {
