@@ -1,12 +1,17 @@
 package seng4400.model;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class OutputMessages {
-    Queue<OutputMessage> messages;
-
+    LinkedList<OutputMessage> messages = new LinkedList<>();
     public void addMessages(OutputMessage message) {
-        messages.add(message);
+        messages.addFirst(message);
+        //TODO limit to 50
+    }
+
+    public void removeOldMessage() {
+        messages.removeLast();
     }
 
     public Queue<OutputMessage> getMessages() {
