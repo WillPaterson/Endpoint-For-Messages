@@ -17,6 +17,8 @@ public class MessageController {
 
         System.out.println(outputMessage);
 
+        // TODO maybe add some sort of time stamp to output message?
+
         outputMessages.addMessages(outputMessage);
     }
 
