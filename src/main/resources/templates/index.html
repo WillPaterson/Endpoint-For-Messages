@@ -8,24 +8,25 @@
 <body>
     <h1>Pub Sub Messages</h1>
     <table>
-
         <thead>
-        <tr>
-            <th> Time Taken </th>
-            <th> Answer </th>
-        </tr>
+            <tr th:if="${!messages.isEmpty()}">
+                <th> Time Taken </th>
+                <th> Answer </th>
+            </tr>
+            <tr>
+                <th th:if="${messages.isEmpty()}"> No Messages Available  </th>
+            </tr>
         </thead>
         <tbody>
-        <tr th:if="${messages.isEmpty()}">
-            <td colspan="2"> No Messages Available  </td>
-        </tr>
-        <tr th:each="message : ${messages}">
-            <td><span th:text="${message.time_taken}"> Time Taken </span></td>
-            <td><span th:each="answer : ${message.answer}"> <span th:text="${answer}"> Answer </span></span></td>
-        </tr>
+            <tr th:each="message : ${messages}">
+                <td><span th:text="${message.time_taken}"> Time Taken </span></td>
+                <td>
+                    <span th:each="answer : ${message.answer}">
+                        <span th:text="${answer}"> Answer </span>
+                    </span>
+                </td>
+            </tr>
         </tbody>
-
-        test
     </table>
 </body>
 </html>
