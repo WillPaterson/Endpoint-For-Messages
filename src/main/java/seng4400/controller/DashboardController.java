@@ -25,6 +25,8 @@ public class DashboardController {
      */
     @GetMapping("")
     public String loadDashboard(Model model) {
+        // TODO make page reload on new message
+
         // Add message queue to be passed to HTML
         model.addAttribute("messages", getMessages());
         return "index";
