@@ -6,6 +6,8 @@ public class OutputMessage {
     private int[] answer;
     private double time_taken;
 
+    private long timeStamp;
+
     public int[] getAnswer() {
         return answer;
     }
@@ -14,12 +16,20 @@ public class OutputMessage {
         return time_taken;
     }
 
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
     public void setAnswer(int[] answer) {
         this.answer = answer;
     }
 
     public void setTime_taken(double time_taken) {
         this.time_taken = time_taken;
+    }
+
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     @Override
