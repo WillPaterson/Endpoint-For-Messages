@@ -3,9 +3,9 @@ package seng4400.model;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class OutputMessages {
+public class MessageQueue {
     LinkedList<OutputMessage> messages = new LinkedList<>();
-    public void addMessages(OutputMessage message) {
+    public void addMessage(OutputMessage message) {
         messages.addFirst(message);
         if (messages.size() > 50) {
             removeOldMessage();
