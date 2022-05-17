@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.util.Arrays;
 
+/**
+ * Represents a message sent from subscriber
+ */
 public class OutputMessage {
     @Getter
     @Setter
