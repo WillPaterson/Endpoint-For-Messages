@@ -16,10 +16,6 @@ public class OutputMessage {
         return time_taken;
     }
 
-    public long getTimeStamp() {
-        return timeStamp;
-    }
-
     public void setAnswer(int[] answer) {
         this.answer = answer;
     }

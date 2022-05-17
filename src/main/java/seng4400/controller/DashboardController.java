@@ -6,17 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import seng4400.model.MessageQueue;
 import seng4400.model.OutputMessage;
 
+import java.util.Queue;
+
 @Controller
 public class DashboardController {
-    private static final MessageQueue MESSAGE_QUEUE = new MessageQueue();
+    private static final MessageQueue messageQueue = new MessageQueue();
 
     @GetMapping("")
     public String loadPage(Model model) {
-        model.addAttribute("messages", MESSAGE_QUEUE.getMessages());
+        model.addAttribute("messages", getMessages());
         return "index";
     }
 
     public static void addMessage(OutputMessage message) {
-        MESSAGE_QUEUE.addMessage(message);
+        messageQueue.addMessage(message);
+    }
+
+    public static Queue<OutputMessage> getMessages() {
+        return messageQueue.getMessages();
     }
 }
