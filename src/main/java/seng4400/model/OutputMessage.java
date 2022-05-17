@@ -14,7 +14,7 @@ public class OutputMessage {
     private double time_taken;
     @Getter
     @Setter
-    private long timeStamp;
+    private String timeStamp;
 
     @Override
     public String toString() {

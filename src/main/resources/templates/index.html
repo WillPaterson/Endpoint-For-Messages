@@ -10,6 +10,7 @@
     <table>
         <thead>
             <tr th:if="${!messages.isEmpty()}">
+                <th> Time Received </th>
                 <th> Time Taken </th>
                 <th> Answer </th>
             </tr>
@@ -19,6 +20,7 @@
         </thead>
         <tbody>
             <tr th:each="message : ${messages}">
+                <td> <span th:text="${message.timeStamp}"> Time Received </span></td>
                 <td><span th:text="${message.time_taken}"> Time Taken </span></td>
                 <td>
                     <span th:each="answer : ${message.answer}">
