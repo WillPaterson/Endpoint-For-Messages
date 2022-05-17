@@ -1,38 +1,27 @@
 package seng4400.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 
 public class OutputMessage {
+    @Getter
+    @Setter
     private int[] answer;
+    @Getter
+    @Setter
     private double time_taken;
-
+    @Getter
+    @Setter
     private long timeStamp;
-
-    public int[] getAnswer() {
-        return answer;
-    }
-
-    public double getTime_taken() {
-        return time_taken;
-    }
-
-    public void setAnswer(int[] answer) {
-        this.answer = answer;
-    }
-
-    public void setTime_taken(double time_taken) {
-        this.time_taken = time_taken;
-    }
-
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
-    }
 
     @Override
     public String toString() {
-        return "OutputMessage {" +
+        return "OutputMessage{" +
                 "answer=" + Arrays.toString(answer) +
                 ", time_taken=" + time_taken +
+                ", timeStamp=" + timeStamp +
                 '}';
     }
 }
