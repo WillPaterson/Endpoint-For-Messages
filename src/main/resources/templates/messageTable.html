@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div th:fragment="messages_fragment" id="update_table" class="container-fluid">
+    <table id="messages" class="table table-sm">
+        <thead>
+        <tr th:if="${!messages.isEmpty()}">
+            <th scope="col"> Time Received </th>
+            <th scope="col"> Time Taken </th>
+            <th scope="col"> Answer </th>
+        </tr>
+        <tr>
+            <th th:if="${messages.isEmpty()}"> No Messages Available  </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="message : ${messages}">
+            <td> <span th:text="${message.timeStamp}"> Time Received </span></td>
+            <td><span th:text="${message.time_taken}"> Time Taken </span></td>
+            <td>
+                    <span th:each="answer : ${message.answer}">
+                        <span th:text="${answer}"> Answer </span>
+                    </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,34 +1,30 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <title>Dashboard</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--    <meta http-equiv="refresh" content="1" />-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Pub Sub Messages</h1>
-    <table>
-        <thead>
-            <tr th:if="${!messages.isEmpty()}">
-                <th> Time Received </th>
-                <th> Time Taken </th>
-                <th> Answer </th>
-            </tr>
-            <tr>
-                <th th:if="${messages.isEmpty()}"> No Messages Available  </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="message : ${messages}">
-                <td> <span th:text="${message.timeStamp}"> Time Received </span></td>
-                <td><span th:text="${message.time_taken}"> Time Taken </span></td>
-                <td>
-                    <span th:each="answer : ${message.answer}">
-                        <span th:text="${answer}"> Answer </span>
-                    </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<body onload="updateOutput()">
+    <h1 class="text-center">Pub Sub Messages</h1>
+
+    <div id="update_table">
+        Some initial text displayed here. This will be replaced.
+    </div>
+
+    <script>
+        // Update every second
+        $(function () {
+            setInterval(updateOutput, 1000)
+        });
+
+        // Request updated table
+        function updateOutput() {
+            $.post("update_table").done(function (fragment) {
+                $("#update_table").replaceWith(fragment);
+            });
+        }
+    </script>
 </body>
 </html>
