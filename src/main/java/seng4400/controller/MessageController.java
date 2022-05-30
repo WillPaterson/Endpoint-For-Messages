@@ -1,6 +1,7 @@
 package seng4400.controller;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import org.springframework.web.bind.annotation.*;
 import seng4400.model.OutputMessage;
 
@@ -19,17 +20,22 @@ public class MessageController {
      */
     @PostMapping("/process")
     public void process(@RequestBody String payload) {
-        // Get message from Json
-        Gson gson = new Gson();
-        OutputMessage outputMessage = gson.fromJson(payload, OutputMessage.class);
+        try {
+            // Get message from Json
+            Gson gson = new Gson();
+            OutputMessage outputMessage = gson.fromJson(payload, OutputMessage.class);
 
-        // Update received time stamp
-        setTimeStamp(outputMessage);
+            // Update received time stamp
+            setTimeStamp(outputMessage);
 
-        System.out.println("DEBUG: " + outputMessage);
+            System.out.println("DEBUG: " + outputMessage);
 
-        // Add message to Dashboard message Queue
-        DashboardController.addMessage(outputMessage);
+            // Add message to Dashboard message Queue
+            DashboardController.addMessage(outputMessage);
+        } catch (JsonSyntaxException e) {
+            System.err.println("There was an error parsing this message:");
+            System.err.println(payload);
+        }
     }
 
     private void setTimeStamp(OutputMessage message) {
