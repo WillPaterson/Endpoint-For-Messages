@@ -28,8 +28,6 @@ public class MessageController {
             // Update received time stamp
             setTimeStamp(outputMessage);
 
-            System.out.println("DEBUG: " + outputMessage);
-
             // Add message to Dashboard message Queue
             DashboardController.addMessage(outputMessage);
         } catch (JsonSyntaxException e) {
