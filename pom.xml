@@ -54,6 +54,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version>
 				<configuration>
 					<mainClass>seng4400.Seng4400A2EndPointApplication</mainClass>
 					<excludes>
