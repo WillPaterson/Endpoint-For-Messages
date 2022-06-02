@@ -14,6 +14,7 @@ import java.util.Arrays;
 @ToString
 public class OutputMessage {
     private int[] answer;
+    private int[] answerShort;
     private double time_taken;
     private String timeStamp;
 }
